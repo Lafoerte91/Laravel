@@ -8,8 +8,13 @@ use App\Models\Task;
 class TaskController extends Controller
 {
     // отображение списка задач
-    public function index() {
-        $tasks = Task::all();
+    public function index(Request $request) {
+        $searchItem = $request->input('search');
+        if($searchItem) {
+            $tasks = Task::where('name', 'like', '%' . $searchItem . '%')->get();
+        } else {
+            $tasks = Task::all();
+        }
         return view(('tasks.index'), compact('tasks'));
     }
     // создание новой задачи

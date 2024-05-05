@@ -14,6 +14,12 @@
     @endforeach
 </ul>
 
+<form action="/tasks" method="get">
+    @csrf
+    <input type="text" name="search" placeholder="Поиск по имени задачи">
+    <button type="submit">Поиск</button>
+</form>
+
 <form action="/tasks" method="post">
     @csrf
     <input type="text" name="name" placeholder="Новая задача">
