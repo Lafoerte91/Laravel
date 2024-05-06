@@ -7,3 +7,7 @@ Route::get('/tasks', [TaskController::class, 'index'] );
 Route::post('/tasks', [TaskController::class, 'store'] );
 Route::get('/tasks/{task}/complete', [TaskController::class, 'complete'] );
 Route::delete('/tasks/{task}', [TaskController::class, 'destroy'] );
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

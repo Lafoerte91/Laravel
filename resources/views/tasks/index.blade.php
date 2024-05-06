@@ -1,7 +1,7 @@
 <h1>Список задач</h1>
 <li>
     @foreach($tasks as $task)
-        <li>{{ $task->name }}</li>
+        <li class="highlight">{{ $task->name }}</li>
         @if(!$task->completed)
             <a href="/tasks/{{$task->id}}/complete">Выполнить</a>
         @endif
@@ -25,3 +25,4 @@
     <input type="text" name="name" placeholder="Новая задача">
     <button type="submit">Добавить</button>
 </form>
+
