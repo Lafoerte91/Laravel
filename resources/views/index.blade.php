@@ -6,10 +6,16 @@
     <title>Blogger</title>
 </head>
 <body>
-hey
 
-<script src="../js/app.js">
+    <x-test class="my-10">
+        <x-slot name="header" class="my-10">
+            Im header
+        </x-slot>
+        Hello World
+        <x-slot name="footer">
+            Im footer
+        </x-slot>
+    </x-test>
 
-</script>
 </body>
 </html>
