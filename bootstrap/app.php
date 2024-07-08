@@ -3,7 +3,6 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\LogMiddleware;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -21,7 +20,13 @@ return Application::configure(basePath: dirname(__DIR__))
     },
 )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->append(LogMiddleware::class);
+        $middleware->alias([
+            'log' => App\Http\Middleware\LogMiddleware::class,
+            'guest' => Illuminate\Auth\Middleware\RedirectIfAuthenticated::class,
+            'auth' => Illuminate\Auth\Middleware\Authenticate::class,
+            'active' => App\Http\Middleware\ActiveMiddleware::class,
+            'admin' => App\Http\Middleware\AdminMiddleware::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

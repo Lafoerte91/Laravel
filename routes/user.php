@@ -2,7 +2,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\PostController;
 
-Route::prefix('user')->group(function () { // группа роутов для пользователя
+Route::prefix('user')->middleware(['auth', 'active'])->group(function () { // группа роутов для пользователя
+    Route::redirect('/', 'user/posts')->name('user.index');
     Route::get('posts', [PostController::class, 'index'])->name('user.posts.index'); // получение списка постов
     Route::get('posts/create', [PostController::class, 'create'])->name('user.posts.create'); // создание поста
     Route::post('posts/create', [PostController::class, 'store'])->name('user.posts.store'); // сохранение поста

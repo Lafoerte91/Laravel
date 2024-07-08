@@ -3,7 +3,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PostController;
 
 // admin
-Route::prefix('admin')->group(function () { // группа роутов для пользователя
+Route::prefix('admin')->middleware(['active', 'admin'])->group(function () { // группа роутов для пользователя
+    Route::redirect('/', 'admin/posts')->name('admin.index');
     Route::get('posts', [PostController::class, 'index'])->name('admin.posts.index'); // получение списка постов
     Route::get('posts/create', [PostController::class, 'create'])->name('admin.posts.create'); // создание поста
     Route::post('posts/create', [PostController::class, 'store'])->name('admin.posts.store'); // сохранение поста

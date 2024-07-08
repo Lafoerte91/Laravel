@@ -10,13 +10,15 @@ Route::view('/', 'welcome')->name('home');
 
 Route::redirect('home', '/', 301)->name('home.redirect');
 
-Route::get('test', TestController::class)->name('test');
+Route::get('test', TestController::class)->name('test')->middleware('log');
 
-Route::get('register', [RegisterController::class, 'index'])->name('register.index'); // страница регистрации
-Route::post('register', [RegisterController::class, 'store'])->name('register.store'); // запрос регистрации
+Route::middleware('guest')->group(function() {
+    Route::get('register', [RegisterController::class, 'index'])->name('register.index'); // страница регистрации
+    Route::post('register', [RegisterController::class, 'store'])->name('register.store'); // запрос регистрации
 
-Route::get('login', [LoginController::class, 'index'])->name('login.index'); // страница  входа
-Route::post('login', [LoginController::class, 'store'])->name('login.store'); // запрос входа
+    Route::get('login', [LoginController::class, 'index'])->name('login.index')->withoutMiddleware('guest'); // страница  входа
+    Route::post('login', [LoginController::class, 'store'])->name('login.store'); // запрос входа
+});
 
 // blog
 Route::get('blog', [BlogController::class, 'index'])->name('blog.index');
