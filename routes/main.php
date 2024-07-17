@@ -10,7 +10,7 @@ Route::view('/', 'welcome')->name('home');
 
 Route::redirect('home', '/', 301)->name('home.redirect');
 
-Route::get('test', TestController::class)->name('test')->middleware('log');
+Route::get('test', TestController::class)->name('test')->middleware('token:secret');
 
 Route::middleware('guest')->group(function() {
     Route::get('register', [RegisterController::class, 'index'])->name('register.index'); // страница регистрации

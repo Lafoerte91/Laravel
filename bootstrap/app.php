@@ -26,6 +26,8 @@ return Application::configure(basePath: dirname(__DIR__))
             'auth' => Illuminate\Auth\Middleware\Authenticate::class,
             'active' => App\Http\Middleware\ActiveMiddleware::class,
             'admin' => App\Http\Middleware\AdminMiddleware::class,
+            'token' => App\Http\Middleware\TokenMiddleware::class,
+            'throttle' => Illuminate\Routing\Middleware\ThrottleRequests::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
