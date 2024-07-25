@@ -1,5 +1,5 @@
 @extends('layouts.base')
 
 @section('content')
-    <h1>Главная страница</h1>
+    <h1>Просмотр поста</h1>
 @endsection
