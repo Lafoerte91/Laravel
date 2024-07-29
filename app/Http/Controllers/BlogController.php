@@ -17,6 +17,12 @@ class BlogController extends Controller
 
     public function show($post)
     {
+        $post = (object) [
+            'id' => 123,
+            'title' => 'Lorem ipsum dolor sit amet.',
+            'content' => 'Lorem ipsum <strong>dolor </strong> sit amet consectetur adipisicing elit. Eius, cupiditate.'
+        ];
+
         return  view('blog.show', ['post' => $post]);
     }
 
