@@ -22,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer('admin*', function ($view) {
             $view->with('balance', 12345);
-        })
+        });
     }
 }
+
