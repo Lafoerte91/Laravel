@@ -9,6 +9,11 @@
         .container {
             max-width: 720px;
         }
+        .required::after {
+            content: '*';
+            color: red;
+            margin-left: 3px;
+        }
     </style>
 </head>
 <body>
