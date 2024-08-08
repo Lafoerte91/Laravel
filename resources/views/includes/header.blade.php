@@ -7,18 +7,18 @@
     <div class="collapse navbar-collapse" id="navbar-collapse">
     <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{route('home')}}">{{__('Главная')}}</a>
+            <a class="nav-link {{active_link('home')}}" aria-current="page" href="{{route('home')}}">{{__('Главная')}}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{route('blog.index')}}">{{__('Блог')}}</a>
+            <a class="nav-link {{active_link('blog.index')}}" aria-current="page" href="{{route('blog.index')}}">{{__('Блог')}}</a>
         </li>
     </ul>
     <ul class="navbar-nav ms-auto mb-2 mb-md-0">
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{route('register.index')}}">{{__('Регистрация')}}</a>
+            <a class="nav-link {{active_link('register.index')}}" aria-current="page" href="{{route('register.index')}}">{{__('Регистрация')}}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{route('login.index')}}">{{__('Вход')}}</a>
+            <a class="nav-link {{active_link('login.index')}}" aria-current="page" href="{{route('login.index')}}">{{__('Вход')}}</a>
         </li>
     </ul>
     </div>
