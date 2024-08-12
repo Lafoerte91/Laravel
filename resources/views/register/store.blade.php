@@ -1,5 +1,5 @@
 @extends('layouts.base')
 
 @section('content')
-    <h1>Запрос на регистрацию</h1>
+    <p>Запрос на регистрацию</p>
 @endsection
